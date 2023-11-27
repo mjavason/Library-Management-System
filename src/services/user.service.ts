@@ -42,7 +42,7 @@ class Service {
     ).select('-__v');
   }
 
-  async hardDelete(searchParams: Partial<IUser>) {
+  async hardDelete(searchParams: object) {
     return await UserModel.findOneAndDelete(searchParams).select('-__v');
   }
 

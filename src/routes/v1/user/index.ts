@@ -19,7 +19,7 @@ import { bookValidation } from '../../../validation';
 
 import isAuth from '../../../middleware/is_auth.middleware';
 
-// router.use(isAuth);
+router.use(isAuth);
 router.use('/book', generalRouteGenerator(bookValidation, bookController));
 
 export default router;

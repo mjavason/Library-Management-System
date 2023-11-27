@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
-import { CORS_ORIGIN } from '../constants';
+// import { CORS_ORIGIN } from '../constants';
 import { SWAGGER_OPTIONS } from '../config/swagger';
 import limiter from './rate_limiter.middleware';
 import morgan from 'morgan';

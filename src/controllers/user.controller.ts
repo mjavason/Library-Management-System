@@ -13,7 +13,7 @@ import {
 import { resetTokenService, userService } from '../services';
 import logger from '../helpers/logger.helper';
 import { signJwt, verifyJwt } from '../utils/jwt';
-import { ACCESS_TOKEN_SECRET, JWT_SECRET, MESSAGES, REFRESH_TOKEN_SECRET } from '../constants';
+import { ACCESS_TOKEN_SECRET, JWT_SECRET, MESSAGES } from '../constants';
 import { mailController } from '../controllers';
 
 async function hashPassword(password: string) {
@@ -77,8 +77,8 @@ class Controller {
     // Passwords match, user is authenticated
     const { _id, role } = user;
 
-    const accessToken = await signJwt({ _id, role, email }, ACCESS_TOKEN_SECRET, '48h');
-    const refreshToken = await signJwt({ _id, role, email }, REFRESH_TOKEN_SECRET, '24h');
+    // const accessToken = await signJwt({ _id, role, email }, ACCESS_TOKEN_SECRET, '48h');
+    // const refreshToken = await signJwt({ _id, role, email }, REFRESH_TOKEN_SECRET, '24h');
     const magicLinkToken = await signJwt({ _id, role, email }, JWT_SECRET, '3m');
 
     // res.cookie('token', accessToken, { httpOnly: true });
@@ -131,7 +131,7 @@ class Controller {
     expiresAt.setHours(expiresAt.getHours() + 1);
 
     // Save the reset token to the database
-    const resetToken = await resetTokenService.create({ user: user._id, token, expiresAt });
+    // const resetToken = await resetTokenService.create({ user: user._id, token, expiresAt });
 
     // Send the password reset email
     const mailSent = await mailController.sendPasswordResetEmail(email, token);

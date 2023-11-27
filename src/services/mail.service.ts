@@ -1,8 +1,7 @@
 import nodeMailer from 'nodemailer';
-import { MAIL_ADDRESS, MAIL_PASSWORD, SITE_LINK } from '../constants';
-const fs = require('fs');
-const handlebars = require('handlebars');
-import { SuccessMsgResponse } from '../helpers/response.helper';
+import { MAIL_ADDRESS, MAIL_PASSWORD } from '../constants';
+import fs from 'fs';
+import handlebars from 'handlebars';
 import logger from '../helpers/logger.helper';
 
 // Email account setup and login. You need to pass in your email credentials and use this app to control it.

@@ -1,6 +1,5 @@
 import { mailService, userService } from '../services';
 import { APP_NAME, SITE_LINK } from '../constants';
-import logger from '../helpers/logger.helper';
 
 class Controller {
   async sendWelcomeMail(email: string, firstName: string, lastName: string, token: string) {
