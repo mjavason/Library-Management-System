@@ -10,10 +10,12 @@ const bookSchema = new Schema<IBook>({
   author: {
     type: String,
     required: true,
+    index: true,
   },
   genre: {
     type: String,
     required: true,
+    index: true,
   },
   publicationDate: {
     type: Date,
@@ -22,6 +24,7 @@ const bookSchema = new Schema<IBook>({
   ISBN: {
     type: String,
     required: true,
+    index: true,
   },
   availableCopies: {
     type: Number,
